@@ -22,7 +22,11 @@
                 <input type="text" class="bg-[#2e3035] focus:outline-none px-4 py-4" placeholder="Куда">
                 <div class="flex items-center gap-1 lg:col-span-2">                    
                     <input type="date" class="bg-[#2e3035] focus:outline-none px-4 py-4 w-1/2 max-lg:rounded-bl-xl" placeholder="Когда">
-                    <input type="date" class="bg-[#2e3035] focus:outline-none px-4 py-4 w-1/2 max-lg:rounded-br-xl lg:rounded-r-xl" placeholder="Обратно">
+                    <select type="date" class="bg-[#2e3035] focus:outline-none px-4 h-full w-1/2 max-lg:rounded-br-xl lg:rounded-r-xl">
+                        <option value="Эконом">Эконом</option>
+                        <option value="Комфорт">Комфорт</option>
+                        <option value="Бизнес">Бизнес</option>
+                    </select>
                 </div>
             </div>
             <button class="px-4 h-full rounded-xl bg-[#7DCCFF] max-lg:py-2">Найти</button>
