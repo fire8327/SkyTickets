@@ -5,7 +5,7 @@
             <div class="flex items-center text-lg gap-6 max-lg:hidden">
                 <NuxtLink to="/">Главная</NuxtLink>
                 <span class="w-px h-8 bg-white"></span>
-                <NuxtLink to="/">Каталог</NuxtLink>
+                <NuxtLink to="/catalog">Каталог</NuxtLink>
                 <span class="w-px h-8 bg-white"></span>
                 <NuxtLink to="/">
                     <Icon class="text-2xl" name="ph:bag-fill"/>
