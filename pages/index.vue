@@ -16,7 +16,7 @@
     <div class="flex flex-col items-center text-center gap-4 w-full">
         <p class="text-4xl uppercase">Поиск <span class="text-[#7DCCFF]">бюджетных</span> вариантов авиапутешествий</p>
         <p class="text-2xl">поможем вам в выборе</p>
-        <FormKit :actions="false" type="form" input-class="flex max-lg:flex-col items-center gap-2.5 text-lg w-full">
+        <!-- <FormKit :actions="false" type="form" input-class="flex max-lg:flex-col items-center gap-2.5 text-lg w-full">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-1 w-full">
                 <FormKit type="text" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 max-lg:rounded-t-xl lg:rounded-l-xl" placeholder="Откуда"/>
                 <FormKit type="text" input-class="bg-[#2e3035] focus:outline-none px-4 py-4" placeholder="Куда"/>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <FormKit type="submit" input-class="px-4 h-full rounded-xl bg-[#7DCCFF] max-lg:py-2">Найти</FormKit>
-        </FormKit>
+        </FormKit> -->
     </div>
     <div class="flex flex-col items-center text-center gap-6 w-full">
         <p class="text-4xl text-center uppercase">Наши <span class="text-[#7DCCFF]">преимущества</span></p>
