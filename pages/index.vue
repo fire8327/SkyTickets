@@ -16,21 +16,17 @@
     <div class="flex flex-col items-center text-center gap-4 w-full">
         <p class="text-4xl uppercase">Поиск <span class="text-[#7DCCFF]">бюджетных</span> вариантов авиапутешествий</p>
         <p class="text-2xl">поможем вам в выборе</p>
-        <div class="flex max-lg:flex-col items-center gap-2.5 text-lg w-full">
+        <FormKit :actions="false" type="form" input-class="flex max-lg:flex-col items-center gap-2.5 text-lg w-full">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-1 w-full">
-                <input type="text" class="bg-[#2e3035] focus:outline-none px-4 py-4 max-lg:rounded-t-xl lg:rounded-l-xl" placeholder="Откуда">
-                <input type="text" class="bg-[#2e3035] focus:outline-none px-4 py-4" placeholder="Куда">
+                <FormKit type="text" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 max-lg:rounded-t-xl lg:rounded-l-xl" placeholder="Откуда"/>
+                <FormKit type="text" input-class="bg-[#2e3035] focus:outline-none px-4 py-4" placeholder="Куда"/>
                 <div class="flex items-center gap-1 lg:col-span-2">                    
-                    <input type="date" class="bg-[#2e3035] focus:outline-none px-4 py-4 w-1/2 max-lg:rounded-bl-xl" placeholder="Когда">
-                    <select type="date" class="bg-[#2e3035] focus:outline-none px-4 h-full w-1/2 max-lg:rounded-br-xl lg:rounded-r-xl">
-                        <option value="Эконом">Эконом</option>
-                        <option value="Комфорт">Комфорт</option>
-                        <option value="Бизнес">Бизнес</option>
-                    </select>
+                    <FormKit type="date" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 w-1/2 max-lg:rounded-bl-xl" placeholder="Когда"/>
+                    <FormKit type="select" placeholder="Тип билета" :options="['Эконом','Комфорт','Бизнес']" input-class="bg-[#2e3035] focus:outline-none px-4 h-full w-1/2 max-lg:rounded-br-xl lg:rounded-r-xl"/>
                 </div>
             </div>
-            <button class="px-4 h-full rounded-xl bg-[#7DCCFF] max-lg:py-2">Найти</button>
-        </div>
+            <FormKit type="submit" input-class="px-4 h-full rounded-xl bg-[#7DCCFF] max-lg:py-2">Найти</FormKit>
+        </FormKit>
     </div>
     <div class="flex flex-col items-center text-center gap-6 w-full">
         <p class="text-4xl text-center uppercase">Наши <span class="text-[#7DCCFF]">преимущества</span></p>

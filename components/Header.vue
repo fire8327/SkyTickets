@@ -7,9 +7,13 @@
                 <span class="w-px h-8 bg-white"></span>
                 <NuxtLink to="/">Каталог</NuxtLink>
                 <span class="w-px h-8 bg-white"></span>
-                <Icon class="text-2xl" name="ph:bag-fill"/>
+                <NuxtLink to="/">
+                    <Icon class="text-2xl" name="ph:bag-fill"/>
+                </NuxtLink>
                 <span class="w-px h-8 bg-white"></span>
-                <Icon class="text-2xl" name="material-symbols:person"/>
+                <NuxtLink to="/">
+                    <Icon class="text-2xl" name="material-symbols:person"/>
+                </NuxtLink>
             </div>
             <button class="lg:hidden">
                 <Icon class="text-3xl" name="material-symbols:menu"/>
