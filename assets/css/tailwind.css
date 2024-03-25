@@ -4,7 +4,7 @@
 
 @layer base {
     #__nuxt{
-        @apply flex flex-col min-h-screen bg-[#141414] text-white font-semibold 
+        @apply flex flex-col min-h-screen bg-[#141414] text-white font-semibold font-Roboto
     }
         
     :root{
@@ -34,3 +34,8 @@
         @apply max-w-[var(--widthContent)]
     } 
 }
+
+.swiper-pagination-bullet-active {
+    background: #7DCCFF !important;
+}
+
