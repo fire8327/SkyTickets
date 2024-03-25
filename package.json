@@ -10,8 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@formkit/nuxt": "^1.6.0",
+    "@formkit/themes": "^1.6.0",
     "nuxt": "^3.11.1",
-    "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
@@ -19,5 +20,9 @@
     "@nuxtjs/tailwindcss": "^6.11.4",
     "nuxt-icon": "^0.6.10",
     "nuxt-swiper": "^1.2.2"
+  },
+  "overrides": {
+    "unocss": "0.58.6",
+    "vue": "latest"
   }
 }
