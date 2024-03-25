@@ -1,7 +1,9 @@
 <template>
     <header class="w-full py-4 grid-container">
         <div class="flex items-center justify-between">
-            <img src="/images/header/logo.png" alt="" class="w-52">
+            <NuxtLink to="/">
+                <img src="/images/header/logo.png" alt="" class="w-52">
+            </NuxtLink>
             <div class="flex items-center text-lg gap-6 max-lg:hidden">
                 <NuxtLink to="/">Главная</NuxtLink>
                 <span class="w-px h-8 bg-white"></span>
