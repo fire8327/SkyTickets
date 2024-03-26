@@ -16,7 +16,17 @@
     <div class="flex flex-col items-center text-center gap-4 w-full">
         <p class="text-4xl uppercase">Поиск <span class="text-[#7DCCFF]">бюджетных</span> вариантов авиапутешествий</p>
         <p class="text-2xl">поможем вам в выборе</p>
-        <SearchTickets></SearchTickets>
+        <FormKit @submit="router.push('/catalog')" :actions="false" type="form" form-class="flex max-lg:flex-col items-start gap-2.5 text-lg w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-1 w-full">
+                <FormKit v-model="from" validation="required" name="Откуда" type="text" message-class="text-[#E71616]" outer-class="w-full" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 max-lg:rounded-t-xl lg:rounded-l-xl w-full" placeholder="Откуда"/>
+                <FormKit v-model="where" validation="required" type="text" name="Куда" message-class="text-[#E71616]" outer-class="w-full" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 w-full" placeholder="Куда"/>
+                <div class="flex items-start gap-1 lg:col-span-2">                    
+                    <FormKit v-model="date" validation="required" type="date" name="Дата вылета" message-class="text-[#E71616]" outer-class="w-1/2" inner-class="h-full" wrapper-class="h-[60px]" input-class="bg-[#2e3035] focus:outline-none px-4 h-full w-full max-lg:rounded-bl-xl" placeholder="Когда"/>
+                    <FormKit v-model="type" validation="required" type="select" name="Тип билета" message-class="text-[#E71616]" outer-class="w-1/2" inner-class="h-full" wrapper-class="h-[60px]" placeholder="Тип билета" :options="['Эконом','Комфорт','Бизнес']" input-class="bg-[#2e3035] focus:outline-none px-4 h-full w-full max-lg:rounded-br-xl lg:rounded-r-xl"/>
+                </div>
+            </div>
+            <FormKit type="submit" outer-class="h-[60px] max-lg:mx-auto" inner-class="h-full" wrapper-class="h-full" input-class="px-4 h-full rounded-xl bg-[#7DCCFF] max-lg:py-2 focus:outline-none">Найти</FormKit>
+        </FormKit>
     </div>
     <div class="flex flex-col items-center text-center gap-6 w-full">
         <p class="text-4xl text-center uppercase">Наши <span class="text-[#7DCCFF]">преимущества</span></p>
@@ -47,5 +57,6 @@
 </template>
 
 <script setup>
-
+    const router = useRouter()
+    const { from, where, date, type } = storeToRefs(useSearchStore())
 </script>
