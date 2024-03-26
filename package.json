@@ -17,7 +17,9 @@
   },
   "devDependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/supabase": "^1.1.7",
     "@nuxtjs/tailwindcss": "^6.11.4",
+    "@pinia/nuxt": "^0.5.1",
     "nuxt-icon": "^0.6.10",
     "nuxt-swiper": "^1.2.2"
   },

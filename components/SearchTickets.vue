@@ -1,5 +1,5 @@
 <template>
-    <FormKit :actions="false" type="form" form-class="flex max-lg:flex-col items-start gap-2.5 text-lg w-full" :validation-messages="false">
+    <FormKit :actions="false" type="form" form-class="flex max-lg:flex-col items-start gap-2.5 text-lg w-full">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-1 w-full">
             <FormKit validation="required" name="Откуда" type="text" message-class="text-[#E71616]" outer-class="w-full" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 max-lg:rounded-t-xl lg:rounded-l-xl w-full" placeholder="Откуда"/>
             <FormKit validation="required" type="text" name="Куда" message-class="text-[#E71616]" outer-class="w-full" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 w-full" placeholder="Куда"/>
