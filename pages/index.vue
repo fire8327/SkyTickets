@@ -16,7 +16,7 @@
     <div class="flex flex-col items-center text-center gap-4 w-full">
         <p class="text-4xl uppercase">Поиск <span class="text-[#7DCCFF]">бюджетных</span> вариантов авиапутешествий</p>
         <p class="text-2xl">поможем вам в выборе</p>
-        <FormKit @submit="router.push('/catalog')" :actions="false" type="form" form-class="flex max-lg:flex-col items-start gap-2.5 text-lg w-full">
+        <FormKit @submit="router.push('/catalog')" :actions="false" type="form" form-class="flex max-lg:flex-col items-start gap-2.5 text-lg w-full h-fit">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-1 w-full">
                 <FormKit v-model="from" validation="required" name="Откуда" type="text" message-class="text-[#E71616]" outer-class="w-full" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 max-lg:rounded-t-xl lg:rounded-l-xl w-full" placeholder="Откуда"/>
                 <FormKit v-model="where" validation="required" type="text" name="Куда" message-class="text-[#E71616]" outer-class="w-full" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 w-full" placeholder="Куда"/>

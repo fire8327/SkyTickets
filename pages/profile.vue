@@ -35,6 +35,8 @@
                     <p>Страна/Язык</p>
                     <p>{{ data.country }}</p>
                 </div>
+                <div class="w-full h-px bg-[#7DCCFF]"></div>
+                <button @click="logout" class="w-full md:w-1/2 mx-auto px-4 py-2 bg-[#7DCCFF] rounded-xl mt-4">Выход</button>
             </div>
         </div>
     </div>
@@ -42,6 +44,13 @@
 
 <script setup>
     const { authenticated, id } = storeToRefs(useUserStore())
+
+    const router = useRouter()
+    const logout = () => {
+        authenticated.value = false
+        id.value = null
+        router.push("/")
+    }
 
 
     const supabase = useSupabaseClient() 

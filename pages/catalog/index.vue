@@ -1,5 +1,5 @@
 <template>
-    <FormKit @submit="modifyData" :actions="false" type="form" form-class="flex max-lg:flex-col items-start gap-2.5 text-lg w-full">
+    <FormKit @submit="modifyData" :actions="false" type="form" form-class="flex max-lg:flex-col items-start gap-2.5 text-lg w-full h-fit">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-1 w-full">
             <FormKit v-model="from" validation="required" name="Откуда" type="text" message-class="text-[#E71616]" outer-class="w-full" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 max-lg:rounded-t-xl lg:rounded-l-xl w-full" placeholder="Откуда"/>
             <FormKit v-model="where" validation="required" type="text" name="Куда" message-class="text-[#E71616]" outer-class="w-full" input-class="bg-[#2e3035] focus:outline-none px-4 py-4 w-full" placeholder="Куда"/>
@@ -87,7 +87,7 @@
     const modifyData = () => {
         products.value = data
         filterData.value = products.value.filter(el => {
-            return el.when == new Date(date.value).toLocaleDateString('ru-RU')
+            return el.when == new Date(date.value).toLocaleDateString('ru-RU') && el.from == from.value && el.where == where.value && el.type == type.value
         }) 
         products.value = filterData.value
 
