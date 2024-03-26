@@ -1,21 +1,21 @@
 <template>
     <div class="flex flex-col gap-8 grow items-center justify-center">
-        <FormKit type="form" :actions="false" form-class="w-full py-8 px-4 rounded-xl flex flex-col gap-5 items-center bg-[#1d1e20] lg:w-2/3 mx-auto">
+        <FormKit @submit="reg" type="form" :actions="false" form-class="w-full py-8 px-4 rounded-xl flex flex-col gap-5 items-center bg-[#1d1e20] lg:w-2/3 mx-auto">
             <div class="flex items-center max-lg:flex-col gap-2 w-full">
-                <FormKit type="text" name="Фамилия" validation="required" message-class="text-[#E71616]" outer-class="w-full lg:w-2/3" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Фамилия"/>
-                <FormKit type="text" name="Имя" validation="required" message-class="text-[#E71616]" outer-class="w-full lg:w-2/3" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Имя"/>
-                <FormKit type="text" name="Отчество" validation="required" message-class="text-[#E71616]" outer-class="w-full lg:w-2/3" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Отчество"/>
+                <FormKit v-model="user.name" type="text" name="Фамилия" validation="required" message-class="text-[#E71616]" outer-class="w-full lg:w-2/3" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Фамилия"/>
+                <FormKit v-model="user.surname" type="text" name="Имя" validation="required" message-class="text-[#E71616]" outer-class="w-full lg:w-2/3" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Имя"/>
+                <FormKit v-model="user.patronymic" type="text" name="Отчество" validation="required" message-class="text-[#E71616]" outer-class="w-full lg:w-2/3" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Отчество"/>
             </div>
             <div class="flex items-center max-lg:flex-col gap-2 w-full">
-                <FormKit type="text" name="Логин" validation="required" message-class="text-[#E71616]" outer-class="w-full lg:w-1/2" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Логин"/>
-                <FormKit type="text" name="Пароль" validation="required" message-class="text-[#E71616]" outer-class="w-full lg:w-1/2" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="••••••"/>
+                <FormKit v-model="user.login" type="text" name="Логин" validation="required" message-class="text-[#E71616]" outer-class="w-full lg:w-1/2" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Логин"/>
+                <FormKit v-model="user.password" type="password" name="Пароль" validation="required" message-class="text-[#E71616]" outer-class="w-full lg:w-1/2" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="••••••"/>
             </div>
-            <FormKit type="file" accept=".png,.jpg,.jpeg,.svg,.webp,.bmp" name="Аватар" validation="required" message-class="text-[#E71616]" outer-class="w-full" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4"/>
+            <FormKit type="file" @change="imageToBase" accept=".png,.jpg,.jpeg,.svg,.webp,.bmp" name="Аватар" validation="required" message-class="text-[#E71616]" outer-class="w-full" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4"/>
             <div class="flex items-center max-lg:flex-col gap-2 w-full">
-                <FormKit type="email" name="Email" validation="required|email" message-class="text-[#E71616]" outer-class="w-full lg:w-1/2" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Email"/>
-                <FormKit type="text" name="Номер телефона" validation="required|length:11" message-class="text-[#E71616]" outer-class="w-full lg:w-1/2" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Номер телефона"/>
+                <FormKit v-model="user.email" type="email" name="Email" validation="required|email" message-class="text-[#E71616]" outer-class="w-full lg:w-1/2" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Email"/>
+                <FormKit v-model="user.phone" type="text" name="Номер телефона" validation="required|length:11" message-class="text-[#E71616]" outer-class="w-full lg:w-1/2" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Номер телефона"/>
             </div>
-            <FormKit type="select" :options="['RUB','USD','EUR']" name="Валюта" validation="required" message-class="text-[#E71616]" outer-class="w-full" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Валюта"/>
+            <FormKit v-model="user.currency" type="select" :options="['RUB','USD','EUR']" name="Валюта" validation="required" message-class="text-[#E71616]" outer-class="w-full" input-class="focus:outline-none bg-[#242528] rounded-full w-full border border-[#7DCCFF] py-2 px-4" placeholder="Валюта"/>
             <FormKit type="submit" input-class="px-4 rounded-xl bg-[#7DCCFF] py-2 w-fit focus:outline-none">Регистрация</FormKit>
         </FormKit>
         <div class="w-full flex items-center justify-between lg:w-1/2 mx-auto">
@@ -28,5 +28,60 @@
 </template>
 
 <script setup>
+    const supabase = useSupabaseClient()
+    const router = useRouter()
+    const user = ref({
+        name: "",
+        surname: "",
+        patronymic: "",
+        login: "",
+        password: "",
+        image: null,
+        email: "",
+        phone: "",
+        currency: "",
+    })
 
+
+    const imageToBase = (el) => {
+        const file = el.target.files[0]
+        console.log(file)
+        let reader = new FileReader()
+        reader.onloadend = () => {
+            user.value.image = reader.result
+            console.log(user.value.image) 
+        }
+        reader.readAsDataURL(file)
+    }
+
+
+    const reg = async () => {
+        const { data: users, error: usersError } = await supabase
+        .from('users')
+        .select("*")
+        .eq('login', `${user.value.login}`)
+
+        if (users[0]) {
+        user.value.login = ""
+        /* messageTitle.value = 'Такой логин уже используется!', messageType.value = false
+        setTimeout(() => {
+            messageTitle.value = null
+        }, 3000) */
+        } else {
+            const { data, error } = await supabase
+            .from('users')
+            .insert([
+                { name: user.value.name, surname: user.value.surname, patronymic: user.value.patronymic, login: user.value.login, password: user.value.password, image: user.value.image, email: user.value.email, phone: user.value.phone, currency: user.value.currency},
+            ])
+            .select()
+            if (data) {
+                console.log(data[0])
+                /* messageTitle.value = 'Успешная регистрация!', messageType.value = true 
+                setTimeout(() => {
+                    messageTitle.value = null
+                }, 3000)  */
+                router.push('/auth')
+            }
+        }
+    } 
 </script>
