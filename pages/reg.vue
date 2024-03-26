@@ -24,6 +24,10 @@
             <div class="w-1/3 bg-[#242528] h-px"></div>  
         </div>
         <NuxtLink to="/auth" class="px-4 py-2 bg-[#7DCCFF] w-fit rounded-xl mx-auto">Войти</NuxtLink>
+        <button type="button" @click="messageTitle = null" class="fixed top-10 right-10 z-[11] cursor-pointer flex items-center gap-4 px-6 py-2 rounded-2xl w-fit text-white" :class="messageType ? ' bg-[#7DCCFF]' : 'bg-red-500'" v-if="messageTitle">
+            <span>{{messageTitle}}</span>
+            <Icon name="material-symbols:close-rounded" class="text-xl"/>
+        </button>
     </div>
 </template>
 
@@ -41,6 +45,9 @@
         phone: "",
         currency: "",
     })
+
+
+    const { messageTitle, messageType } = storeToRefs(useMessagesStore())
 
 
     const imageToBase = (el) => {
@@ -63,10 +70,10 @@
 
         if (users[0]) {
         user.value.login = ""
-        /* messageTitle.value = 'Такой логин уже используется!', messageType.value = false
+        messageTitle.value = 'Такой логин уже используется!', messageType.value = false
         setTimeout(() => {
             messageTitle.value = null
-        }, 3000) */
+        }, 3000)
         } else {
             const { data, error } = await supabase
             .from('users')
@@ -76,10 +83,10 @@
             .select()
             if (data) {
                 console.log(data[0])
-                /* messageTitle.value = 'Успешная регистрация!', messageType.value = true 
+                messageTitle.value = 'Успешная регистрация!', messageType.value = true 
                 setTimeout(() => {
                     messageTitle.value = null
-                }, 3000)  */
+                }, 3000) 
                 router.push('/auth')
             }
         }
