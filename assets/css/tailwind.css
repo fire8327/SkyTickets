@@ -39,7 +39,7 @@
     background: #7DCCFF !important;
 }
 
-.formkit-form > .formkit-messages{
+.formkit-form > .formkit-messages, .formkit-no-files{
     display: none;
 }
 
