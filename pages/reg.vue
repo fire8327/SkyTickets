@@ -43,7 +43,7 @@
         image: null,
         email: "",
         phone: "",
-        currency: "",
+        currency: ""
     })
 
 

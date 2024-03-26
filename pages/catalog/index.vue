@@ -51,14 +51,24 @@
                 </div>
                 <div class="flex items-center justify-between gap-4">
                     <p class="text-3xl">{{ product.price.toLocaleString('ru') }}₽</p>
-                    <button class="px-4 py-2 rounded-xl bg-[#7DCCFF]">Купить</button>
+                    <button class="px-4 py-2 rounded-xl bg-[#7DCCFF]" v-if="authenticated">Купить</button>
                 </div>
             </NuxtLink>
         </div>
     </div>
+    <button type="button" @click="messageTitle = null" class="fixed top-10 right-10 z-[11] cursor-pointer flex items-center gap-4 px-6 py-2 rounded-2xl w-fit text-white" :class="messageType ? ' bg-[#7DCCFF]' : 'bg-red-500'" v-if="messageTitle">
+        <span>{{messageTitle}}</span>
+        <Icon name="material-symbols:close-rounded" class="text-xl"/>
+    </button>
 </template>
 
 <script setup>
+    const { authenticated } = storeToRefs(useUserStore())
+
+
     const supabase = useSupabaseClient() 
     const { data: products } = await supabase.from('products').select("*")
+
+
+    const { messageTitle, messageType } = storeToRefs(useMessagesStore())
 </script>

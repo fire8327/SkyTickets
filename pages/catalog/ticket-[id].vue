@@ -42,13 +42,16 @@
             <div class="w-full h-px bg-[#7DCCFF]"></div>
             <div class="flex items-center gap-2 md:justify-between mt-4 max-md:flex-col">
                 <p class="text-3xl">{{ product[0].price.toLocaleString('ru') }}₽</p>
-                <button class="w-full md:w-1/2 lg:w-1/3 px-4 py-2 bg-[#7DCCFF] rounded-xl">Купить</button>
+                <button class="w-full md:w-1/2 lg:w-1/3 px-4 py-2 bg-[#7DCCFF] rounded-xl" v-if="authenticated">Купить</button>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+    const { authenticated } = storeToRefs(useUserStore())
+
+
     const route = useRoute()
     const supabase = useSupabaseClient() 
     const { data: product } = await supabase.from('products').select("*").eq('id', `${route.params.id}`)
