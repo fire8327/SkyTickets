@@ -62,6 +62,9 @@
         .select()      
         
         messageTitle.value = 'Заказ оформлен!', messageType.value = true
+        setTimeout(() => {
+            messageTitle.value = null
+        }, 3000)
 
         router.push("/")
     }
