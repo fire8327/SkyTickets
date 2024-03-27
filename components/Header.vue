@@ -9,7 +9,7 @@
                 <span class="w-px h-8 bg-white"></span>
                 <NuxtLink to="/catalog">Каталог</NuxtLink>
                 <span class="w-px h-8 bg-white"></span>
-                <NuxtLink to="/">
+                <NuxtLink to="/cart">
                     <Icon class="text-2xl" name="ph:bag-fill"/>
                 </NuxtLink>
                 <span class="w-px h-8 bg-white"></span>
