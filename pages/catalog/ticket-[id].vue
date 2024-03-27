@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-6 lg:w-1/2 rounded-xl bg-[#1d1e20] p-4 lg:mx-auto">
+    <div class="flex flex-col gap-6 lg:w-3/4 rounded-xl bg-[#1d1e20] p-4 lg:mx-auto">
         <NuxtLink to="/catalog" class="flex items-center gap-4 rounded-full bg-[#7DCCFF] py-2 px-4 w-fit">
             <Icon name="ri:arrow-go-back-fill"/>
             <span>Назад</span>

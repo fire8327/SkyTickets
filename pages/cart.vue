@@ -57,8 +57,9 @@
     const order = async () => {        
         const { data, error } = await supabase
         .from('cart')
-        .update({ status: 'Новый' })
+        .update({ status: 'Новый', updated_at: Date.now()})
         .eq('userId', `${id.value}`)
+        .eq('status', 'В корзине')
         .select()      
         
         messageTitle.value = 'Заказ оформлен!', messageType.value = true
