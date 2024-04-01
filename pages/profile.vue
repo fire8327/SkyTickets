@@ -1,6 +1,6 @@
 <template>
     <div class="grow flex flex-col gap-8 items-center justify-center">
-        <div class="flex flex-col gap-6 ww-full lg:w-3/4 lg:mx-auto">
+        <div class="flex flex-col gap-6 w-full lg:w-3/4 lg:mx-auto">
             <p class="text-2xl text-[#7DCCFF]">Личные данные</p>
             <div class="flex flex-col gap-4 w-full rounded-xl bg-[#1d1e20] p-4 h-fit">
                 <div class="flex items-center gap-6">
