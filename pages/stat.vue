@@ -29,18 +29,30 @@
 
 <script setup>
     const supabase = useSupabaseClient() 
-    const { data: stats, error } = await supabase
+    const { data: carts } = await supabase
     .from('cart')
     .select(`*, products (*)`)
     .eq('status', 'Новый')
+    const { data: stats } = await supabase
+    .from('stat')
+    .select(`*`)
     
     const count = ref(0)
     const sumSales = ref(0)
     const averageSales = ref(0)
-
-    stats.forEach(el => {
+    const views = ref(0)
+    views.value = Number(stats[0].views)
+    
+    carts.forEach(el => {
         count.value += Number(el.count)
         sumSales.value += Number(el.count)*Number(el.products.price)
     })
-    averageSales.value += +(sumSales.value/count.value).toFixed(2)
+    averageSales.value += +(sumSales.value/count.value).toFixed(2)             
+    
+    views.value += 1
+    const { data, error } = await supabase
+    .from('stat')
+    .update({ views: `${views.value}` })
+    .eq('id', '1')
+    .select()
 </script>
